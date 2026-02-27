@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-br">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  
+  <meta name="theme-color" content="#1DB954">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Spotify</title>
+
+  <link rel="icon" type="image/png" sizes="192x192" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/192px-Spotify_logo_without_text.svg.png">
+  <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/1024px-Spotify_logo_without_text.svg.png">
+
+  <link rel="manifest" href='data:application/json,{"name":"Spotify","short_name":"Spotify","start_url":"/index.html","display":"standalone","background_color":"#000000","theme_color":"#1DB954","icons":[{"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/192px-Spotify_logo_without_text.svg.png","sizes":"192x192","type":"image/png","purpose":"any"},{"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/512px-Spotify_logo_without_text.svg.png","sizes":"512x512","type":"image/png","purpose":"any"}]}'>
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: sans-serif; user-select:none; }
+    body { background:#000; color:#fff; height:100vh; display:flex; justify-content:center; align-items:center; }
+    .login-screen { position:fixed; inset:0; background:rgba(0,0,0,0.9); display:flex; align-items:center; justify-content:center; z-index:100; }
+    .login-box { background:#1e1e2e; padding:30px; border-radius:15px; border:1px solid #007bff; text-align:center; width:85%; }
+    .key-input { width:100%; padding:12px; margin:15px 0; border-radius:8px; border:1px solid #007bff; background:#000; color:#fff; text-align:center; }
+    .btn { background:#007bff; color:#fff; border:none; padding:12px 25px; border-radius:8px; font-weight:bold; width:100%; }
+    
+    .main-ui { display:none; width:300px; background:#1e1e2e; border-radius:20px; border:2px solid #007bff; overflow:hidden; }
+    .header { background:#282838; padding:15px; text-align:center; border-bottom:1px solid #007bff; color:#007bff; }
+    .options { padding:20px; }
+    .opt-row { display:flex; align-items:center; gap:10px; margin-bottom:15px; font-size:14px; }
+    .check { width:18px; height:18px; border:2px solid #007bff; border-radius:4px; }
+    .check.on { background:#007bff; }
+  </style>
+ </head>
+ <body>
+
+  <div class="login-screen" id="log">
+    <div class="login-box">
+      <h2 style="color:#007bff">RUANZZK</h2>
+      <input type="text" id="k" class="key-input" placeholder="DIGITE A CHAVE">
+      <button class="btn" onclick="entrar()">ENTRAR</button>
+    </div>
+  </div>
+
+  <div class="main-ui" id="main">
+    <div class="header"><h3>EXTERNAL FFH4X</h3></div>
+    <div class="options">
+      <div class="opt-row" onclick="t(this)"><div class="check"></div>Auxiliar de Mira</div>
+      <div class="opt-row" onclick="t(this)"><div class="check"></div>Aimbot Full</div>
+      <button class="btn" style="margin-top:10px">INJETAR</button>
+    </div>
+  </div>
+
+  <script>
+    function entrar() {
+      if(document.getElementById('k').value.toUpperCase() === "RUAN-ZZK-123-1DW-5S") {
+        document.getElementById('log').style.display = 'none';
+        document.getElementById('main').style.display = 'block';
+      } else { alert("Chave Inválida"); }
+    }
+    function t(e) { e.querySelector('.check').classList.toggle('on'); }
+
+    // Service Worker Simples para o Chrome aceitar a instalação como App
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('data:application/javascript,self.addEventListener("fetch", function(e){})');
+    }
+  </script>
+ </body>
+</html>
